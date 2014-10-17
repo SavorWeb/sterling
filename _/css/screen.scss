@@ -1,0 +1,525 @@
+// ::Imports pre-render. Must be after reset
+// ------------------------------------------------------------
+@import "libs/required";
+@import "libs/reset";
+@import "libs/settings";
+@import "libs/mixins";
+@import "libs/placeholders";
+
+// Transformicon Color:
+$navicon-color: $pos;
+
+// Use SASS globbing to import all _.scss files in the module folder.
+// These should be independent modules that follow the BEM/SMACSS way
+@import "modules/*"; 
+
+/* ::Base styles */
+/* ------------------------------------------------------------ */
+
+html {
+	font-size: 100%;
+	@include break-max(768px, $IE9: false) { // Stop at precise width, as we're talking about devices
+		-webkit-text-size-adjust: 100%;	// Stops text scaling in iOS.
+	}
+}
+
+body {
+	@extend .font-body;
+	background: $body-color;
+	color: $base-color;
+}
+
+a {
+	color: $action;
+	text-decoration: none;
+	@include link-active-styles { 	// Mixin for interactions (hover,focus,active)
+		color: $action-respond;
+	}
+	&:not(>img) {
+		@include force-wrap;
+	}
+}
+
+h1 {
+	text-transform: uppercase;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	font-family: $serif;
+}
+
+h2 {
+	text-transform: uppercase;
+	font-family: $serif;
+}
+
+.blue {
+	h1 {
+		color: $pos;
+		border-bottom: 1px solid #e1e1de;
+	}
+}
+.orange {
+	color: $pos;
+}
+.cyan {
+	color: $pos;
+}
+.white {
+	h2 {
+		color: $primary;
+	}
+}
+
+// ------------------------------------------------------------
+// Navigation module
+// ------------------------------------------------------------
+
+// Place your BEM/SMACSS style .scss modules in the modules folder
+
+.pagehead {
+
+	// background-color: transparentize($primary, 0.5);
+	// position: absolute;
+	background-color: $pos;
+	width: 100%;
+	z-index: 10;
+	overflow-x: hidden;
+	.row {
+		margin-bottom: 20px;
+	}
+	.logo {
+		display: block;
+		position: absolute;
+		margin: 12px 0 0;
+		max-width: 32%;
+		img {
+			width: 100%;
+		}
+		@include break($d) {
+			width: 30%;
+			img {
+				max-width: 300px;
+			}
+		}
+	}
+
+	#nav-toggle {
+		float: right;
+		margin: 0;
+		padding-bottom: 23px;
+		padding-left: 15px;
+		padding-right: 15px;
+		border-radius: 0;
+		@include break($d) {
+			display: none;
+		}
+	}
+
+	.nav-collapse {
+		text-transform: uppercase;
+		@include clearfix;
+		background-color: $secondary;
+		border-bottom: 1px solid $grey;
+		clear: both;
+		text-align: center;
+		font-weight: lighter;
+		padding-bottom: 15px;
+		position: relative;
+		@include break($d) {
+			width: 89%;
+			margin: 0;
+			margin-top: 45px;
+			padding: 0;
+			clear: none;
+			background-color: transparent;
+			float: right;
+			padding-bottom: 0;
+			//height: 60px;
+			// clear: both;
+			// margin: 0 -500%;
+	  		//padding: 0 500%;
+		}
+		ul {
+
+			@include clearfix;
+			margin: 0; // cancel out global ul li style
+			@include break($d) {
+				width: 100%;
+				float: left;
+				clear: none;
+			}
+
+			li {
+				
+				margin: 0;
+				margin-left: 10px;
+				list-style-type: none;
+
+				a {
+
+					@extend .sans;
+					font-size: em-font(13px);
+					display: inline-block;
+					width: 100%;
+					color: $neg;
+					padding: 15px 5px;
+					background-color: transparent;
+
+					transition: background-color 0.2s ease-in-out;
+					-moz-transition: background-color 0.2s ease-in-out;
+					-webkit-transition: background-color 0.2s ease-in-out;
+					img {
+						margin-right: 4px;
+						position: relative;
+						top: 5px;
+					}
+					&:hover, &:active {
+						color: $primary;
+						@include break($d) {
+							background-color: transparent;
+						}
+					}
+
+				}
+				@include break($d) {
+					width: auto;
+					float: right;
+					a {
+						padding: 30px 5px 5px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.editable-gallery {
+	.fancybox {
+		width: 40%;
+		@include break($c) {width: 20%;}
+		margin-bottom: 10px;
+	}
+	a {
+		display: inline-block;
+		img {
+			max-width: 100%;
+		}
+		@include break($c) {
+
+		}
+	}
+}
+
+.typeset {
+
+	ul, ol {
+		margin-left: 15px;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		margin-bottom: 15px;
+		@include break($b) {
+			margin: 0 0 30px 0;
+			clear: both;
+			width: 100%;
+		}
+	}
+	.full-width {
+		margin: 0 0 30px 0;
+		clear: both;
+		width: 100%;
+	}
+	.right {
+
+		@include break($b) {
+			float: right;
+			margin: 0 0 15px 30px;
+			width: 40%;
+		}
+	}
+	.left {
+		@include break($b) {
+			float: left;
+			margin: 0 30px 15px 0;
+			width: 40%;
+		}
+	}
+
+	blockquote {
+		padding: 5%;
+		clear: both;
+		background-color: $secondary;
+		color: $pos;
+		@include break($b) {
+			clear: none;
+			float: right;
+		}
+		p {
+			&:before {
+				content: "“ ";
+			}
+			&:after {
+				content: " ”";	
+			}
+		}
+		i {
+			font-size: em-font(10px);
+		}
+	}
+}
+////////////
+// LAYOUT //
+////////////
+
+.padded {
+	padding: 25px;
+}
+
+.social-links {
+	li {
+		float: left;
+		margin-right: 10px;
+		a {
+			display: block;
+			border-radius: 100px;
+			&:hover {
+				background-color: lighten($primary, 25%);
+			}
+			img {
+				width: 20px;
+				margin-bottom: -4px;
+			}
+		}
+	}
+}
+
+.row.typeset {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.hero {
+	color: $pos;
+	position: absolute;
+	text-align: center;
+	margin: 0 auto;
+	width: 92%;
+
+	font-family: $serif;
+	top: 130px;
+	h1 {
+		text-transform: uppercase;
+		font-size: $s1;
+		padding: 0;
+	}
+}
+
+.typeset ul.acc {
+	margin-left: 0;
+	li {
+		background-color: lighten($secondary, 15%);
+	}
+}
+
+.acc li {
+	list-style-type: none;
+}
+
+.acc li .acc-head {
+	cursor: pointer;
+	position: relative;
+	padding: 20px;
+}
+
+.acc li .acc-head i {
+	position: absolute;
+	top: 22px;
+	right: 15px;
+}
+
+.acc-panel {
+	padding: 0px 20px 10px;
+}
+
+.pagefoot {
+	//background-color: $secondary;
+	//margin-top: 50px;
+	padding: 5px 0 15px;
+	font-size: $s10;
+	color: $grey;
+	text-align: left;
+}
+
+.fancybox {
+  img {
+  	width: 100%;
+  }
+}
+
+.fancybox.large { width: 43%; }
+
+
+.row {
+	margin-bottom: 9px;
+}
+
+.row3 {
+	.as-grid .padded {
+		min-height: 349px;
+	}
+}
+
+.row5 {
+	.as-grid .padded {
+		min-height: 535px;
+	}	
+}
+
+.row6 {
+	.as-grid .padded, .as-grid .bigtype {
+		min-height: 330px;
+	}
+}
+
+.row7 {
+	.as-grid .padded {
+		min-height: 370px;
+	}
+}
+
+.bigtype {
+	padding: 10px;
+	span {
+		display: inline-block;
+		clear: both;
+		text-transform: uppercase;
+		color: $primary;
+		font-family: $serif;
+		font-size: 60px;
+		line-height: 75px;
+		&.underline {
+			padding-bottom: 10px;
+			border-bottom: 10px solid $primary;
+		}
+	}
+}
+
+.contact-details {
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 30px;
+	.serif {
+		font-size: $s5;
+	}
+}
+
+.formblock {
+	textarea {
+		min-height: 86px;
+	}
+}
+
+input#submit {
+	float: right;
+	text-transform: uppercase;
+	padding: 8px 30px;
+	font-size: $s10;
+
+}
+
+.cool-stuff {
+	margin-left: 0 !important;
+	margin-bottom: 0 !important;
+	li {
+		list-style-type: none;
+		margin-bottom: 15px !important;
+		width: 87%;
+		&:last-of-type {
+			margin-bottom: 0px !important;
+		}
+		figure {
+			background-color: $pos;
+			border-radius: 100px;
+			float: left;
+			height: 55px;
+			width: 55px;
+			margin-right: 25px;
+			margin-bottom: 30px;
+			img {
+				&.eyeglass {
+					width: 30px;
+					margin: 12px;
+				}
+				&.group {
+					width: 35px;
+					margin-top: 16px;
+					margin-left: 11px;
+				}
+				&.check {
+					width: 30px;
+					margin-top: 17px;
+					margin-left: 14px;
+				}
+			}
+		}
+	}
+}
+
+#testimony {
+	color: #9d9d9b;
+	text-align: center;
+	padding: 10px 0;
+	blockquote {
+		font-size: $s4;
+		font-style: italic;
+		margin-bottom: 15px;
+	}
+	p {
+		font-size: $s9;
+		text-transform: uppercase;
+	}
+}
+
+.features {
+	.padded {
+		figure {
+			width: 160px;
+			margin: 0 auto 25px;
+			img {
+				width: 100%;
+				margin: 0;
+			}
+		}
+		h3 {
+			text-align: center;
+			font-family: $serif;
+		}
+		ul {
+			list-style-image: url('dash.png') !important;
+			li {
+			
+			}
+		}
+	}
+}
+
+/* ::Import styles */
+/* ------------------------------------------------------------ */
+
+@import "libs/typography"; 					// Base level typography
+@import "libs/forms";						// Forms
+@import "add-ons/module-typeset"; 			// Specific typesetting
+@import "add-ons/grid"; 					// Grid system
+
+
+/* ::Print */
+/* ------------------------------------------------------------ */
+
+@media print {
+	body {
+		@include adjust-leading-to(2);
+		font-size: percentage(10 / 16);
+	}
+}

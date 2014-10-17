@@ -1,0 +1,100 @@
+// ------------------------------------------------------------
+// Settings
+
+// :: Breakpoints
+// :: Colour
+// :: Typography
+// :: Borders
+// :: Spacing
+// ------------------------------------------------------------
+
+
+// ------------------------------------------------------------
+// :: Breakpoints
+// ------------------------------------------------------------
+
+// a-z viewports. Place where design should change, not always on device widths
+
+$a								: 300px;	// first viewport 
+$b								: 420px;	// up one
+$c								: 600px;	// up two
+$d								: 960px;	// up three
+$e								: 1000px;	// up four
+$f								: 1500px;	// up five
+$ie-fixed						: 960px;    // Viewport for IE fixed width
+
+$max 							: $e; 	// max viewport. Syntactically makes for a nicer option
+
+
+// At some point, you'll want to switch from a one column view to multi-column.
+// This variable is used in the grid to dictate when you make that switch
+$start-columns 						: $b;
+
+
+// ------------------------------------------------------------
+// :: Color
+// ------------------------------------------------------------
+
+$pos: #fff;
+$neg: #000;
+.white { background-color: $pos; color: $neg; }
+
+$primary 							: #434d61; //blue
+.blue { background-color: $primary; }
+$secondary							: #d96247; //orange
+.orange { background-color: $secondary; }
+$tertiary							: #68939c; //cyan
+.cyan { background-color: $tertiary;  }
+$grey 								: #babab9;
+
+$body-color 						: #f1f1ed;
+$base-color							: #e6e6e6;
+$heading-color						: $pos;
+$hightlight-color 					: $secondary;
+
+$action								: $primary;
+$action-respond						: lighten($primary, 10%);
+
+// ------------------------------------------------------------
+// :: Typesizes/scale
+// ------------------------------------------------------------
+
+$s1   	: 42px;
+$s2		: 30px;
+$s3		: 28px;
+$s4		: 26px;
+$s5		: 24px;
+$s6		: 20px;
+$s7		: 18px;
+$s8		: 16px;
+$s9 	: 14px;
+$s10 	: 12px;
+$s11 	: 10px;
+$s12 	: 8px;
+
+
+$para		: $s8; 	// Paragraph size
+$quote		: $s3;	// Quote size
+
+$serif : serif;
+
+// ------------------------------------------------------------
+// :: Border widths
+// ------------------------------------------------------------
+
+$border-width 				: 1px; 
+
+
+// ------------------------------------------------------------
+// :: Grid variables
+// ------------------------------------------------------------
+
+$internal-spacing-percent 			: 1%;		// Used by grid system
+$internal-spacing					: 40px; 	// Space internally with fixed measure
+
+
+
+// ------------------------------------------------------------	
+// Add functional stuff 
+// ------------------------------------------------------------	
+@import "functions/functions";
