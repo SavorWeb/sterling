@@ -13,9 +13,6 @@
 <script src="_/js/responsive-nav.min.js"></script>
 <script src="_/js/swipe.min.js"></script>
 <script type="text/javascript">
-var navigation = responsiveNav(".nav-collapse", {
-	customToggle: "#nav-toggle"
-});
 
 //**********************************************************************************************************************
 /**
@@ -29,7 +26,7 @@ $(function() {
 	//ON STATE CHANGE
 	$('#search_select_state').change(function() {
 		state = get_state_value();
-		$.post("index.php", { action: "load_municipalities", state: state },
+		$.post("http://www.sterlingcodifiers.com/index.php", { action: "load_municipalities", state: state },
  			function(data) {
    				$('#search_select_city').html(data);
  			}
@@ -101,6 +98,18 @@ $(function(){
 
 <script>
 $(document).ready( function() {
+
+	var navigation = responsiveNav(".nav-collapse", {
+		customToggle: "#nav-toggle"
+	});
+
+	$('.getcodes').on('click', function(){
+		$('.map').slideToggle('fast');
+	});
+
+	$('.closer').on('click', function(){
+		$('.map').slideToggle('fast');
+	});
 
 	smoothScroll.init();
 

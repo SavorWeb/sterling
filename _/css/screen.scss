@@ -7,7 +7,7 @@
 @import "libs/placeholders";
 
 // Transformicon Color:
-$navicon-color: $pos;
+$navicon-color: $primary;
 
 // Use SASS globbing to import all _.scss files in the module folder.
 // These should be independent modules that follow the BEM/SMACSS way
@@ -45,6 +45,9 @@ h1 {
 	padding-bottom: 15px;
 	margin-bottom: 15px;
 	font-family: $serif;
+	span {
+		display: block;
+	}
 }
 
 h2 {
@@ -57,6 +60,15 @@ h2 {
 		color: $pos;
 		border-bottom: 1px solid #e1e1de;
 	}
+	a {
+		color: $pos;
+		&:hover, &:active {
+			color: darken($pos, 10%);
+		}
+	}
+	p {
+		line-height: $s4;
+	}
 }
 .orange {
 	color: $pos;
@@ -67,6 +79,9 @@ h2 {
 .white {
 	h2 {
 		color: $primary;
+	}
+	input, textarea {
+		background-color: $body-color;
 	}
 }
 
@@ -83,21 +98,24 @@ h2 {
 	background-color: $pos;
 	width: 100%;
 	z-index: 10;
-	overflow-x: hidden;
+	overflow: hidden;
 	.row {
-		margin-bottom: 20px;
+		@include break($d) {
+			margin-bottom: 20px;
+		}
 	}
 	.logo {
 		display: block;
 		position: absolute;
 		margin: 12px 0 0;
-		max-width: 32%;
 		img {
-			width: 100%;
+			width: auto;
+			height: 55px;
 		}
 		@include break($d) {
 			width: 30%;
 			img {
+				height: auto;
 				max-width: 300px;
 			}
 		}
@@ -110,6 +128,8 @@ h2 {
 		padding-left: 15px;
 		padding-right: 15px;
 		border-radius: 0;
+		margin-bottom: 12px;
+		margin-top: 10px;
 		@include break($d) {
 			display: none;
 		}
@@ -118,12 +138,13 @@ h2 {
 	.nav-collapse {
 		text-transform: uppercase;
 		@include clearfix;
-		background-color: $secondary;
+		background-color: lighten($grey, 20%);
 		border-bottom: 1px solid $grey;
 		clear: both;
 		text-align: center;
 		font-weight: lighter;
-		padding-bottom: 15px;
+		//padding-bottom: 15px;
+		margin-bottom: 15px;
 		position: relative;
 		@include break($d) {
 			width: 89%;
@@ -150,7 +171,8 @@ h2 {
 			}
 
 			li {
-				
+				width: 45%;
+				float: left;
 				margin: 0;
 				margin-left: 10px;
 				list-style-type: none;
@@ -274,7 +296,12 @@ h2 {
 ////////////
 
 .padded {
-	padding: 25px;
+	padding: 15px;
+	margin-bottom: 10px;
+	@include break($d) {
+		padding: 25px;
+		margin-bottom: 15px;
+	}
 }
 
 .social-links {
@@ -302,17 +329,56 @@ h2 {
 
 .hero {
 	color: $pos;
+	font-family: $serif;
 	position: absolute;
 	text-align: center;
 	margin: 0 auto;
 	width: 92%;
-
-	font-family: $serif;
-	top: 130px;
+	top: 40px;
 	h1 {
 		text-transform: uppercase;
-		font-size: $s1;
 		padding: 0;
+		font-size: $s10;
+		margin: 0 0 5px;
+	}
+	small {
+		font-size: $s9;
+	}
+	@include break($a) {
+		top: 40px;
+		h1 {
+			font-size: $s9;
+		}
+		small {
+			font-size: $s8;
+		}
+	}
+	@include break($b) {
+		top: 80px;
+		h1 {
+			font-size: $s8;
+		}
+		small {
+			font-size: $s7;
+		}
+	}
+	@include break($c) {
+		top: 80px;
+		h1 {
+			font-size: $s5;
+		}
+		small {
+			font-size: $s7;
+		}
+	}
+	@include break($d) {
+		top: 130px;
+		h1 {
+			font-size: $s1;
+		}
+		small {
+			font-size: $s6;
+		}
 	}
 }
 
@@ -362,43 +428,61 @@ h2 {
 
 
 .row {
-	margin-bottom: 9px;
+	
+}
+
+.row2 {
+	margin-bottom: 5px;
+	@include break($d) {margin-bottom: 10px;}
 }
 
 .row3 {
 	.as-grid .padded {
-		min-height: 349px;
+		@include break($d) {min-height: 349px;}
 	}
 }
 
 .row5 {
 	.as-grid .padded {
-		min-height: 535px;
+		@include break($d) {min-height: 535px;}
 	}	
 }
 
 .row6 {
 	.as-grid .padded, .as-grid .bigtype {
-		min-height: 330px;
+		@include break($d) {min-height: 330px;}
 	}
 }
 
 .row7 {
 	.as-grid .padded {
-		min-height: 370px;
+		@include break($d) {min-height: 370px;}
 	}
 }
 
 .bigtype {
 	padding: 10px;
+	margin-bottom: 30px;
 	span {
 		display: inline-block;
 		clear: both;
 		text-transform: uppercase;
 		color: $primary;
 		font-family: $serif;
-		font-size: 60px;
-		line-height: 75px;
+		font-size: 40px;
+		line-height: 55px;
+		@include break($a) {
+			font-size: 45px;
+			line-height: 55px;
+		}
+		@include break($b) {
+			font-size: 45px;
+			line-height: 60px;	
+		}
+		@include break($d) {
+			font-size: 60px;
+			line-height: 75px;
+		}
 		&.underline {
 			padding-bottom: 10px;
 			border-bottom: 10px solid $primary;
@@ -412,13 +496,25 @@ h2 {
 	padding-bottom: 30px;
 	.serif {
 		font-size: $s5;
+		a {
+			color: $pos;
+			&:hover, &:active {
+				text-decoration: underline;
+			}
+		}
 	}
 }
 
 .formblock {
 	textarea {
 		min-height: 86px;
+
 	}
+}
+
+input, textarea {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 }
 
 input#submit {
@@ -426,7 +522,6 @@ input#submit {
 	text-transform: uppercase;
 	padding: 8px 30px;
 	font-size: $s10;
-
 }
 
 .cool-stuff {
@@ -435,32 +530,62 @@ input#submit {
 	li {
 		list-style-type: none;
 		margin-bottom: 15px !important;
-		width: 87%;
+		clear: both;
 		&:last-of-type {
 			margin-bottom: 0px !important;
+		}
+		@include break($d) {
+			width: 87%;
 		}
 		figure {
 			background-color: $pos;
 			border-radius: 100px;
-			float: left;
-			height: 55px;
-			width: 55px;
-			margin-right: 25px;
-			margin-bottom: 30px;
+			height: 35px;
+			width: 35px;
+			margin-top: 10px;
+			margin-left: 10px;
+			margin-bottom: 10px;
+			float: right;
 			img {
 				&.eyeglass {
-					width: 30px;
-					margin: 12px;
+					width: 20px;
+					margin-top: 7px;
+					margin-left: 7px;
 				}
 				&.group {
-					width: 35px;
-					margin-top: 16px;
-					margin-left: 11px;
+					width: 24px;
+					margin-top: 9px;
+					margin-left: 6px;
 				}
 				&.check {
-					width: 30px;
-					margin-top: 17px;
-					margin-left: 14px;
+					width: 20px;
+					margin-top: 11px;
+					margin-left: 8px;
+				}
+			}
+			@include break($d) {
+				float: left;
+				height: 55px;
+				width: 55px;
+				margin-right: 25px;
+				margin-bottom: 30px;
+				margin-top: 0;
+				margin-left: 0;
+				img {
+					&.eyeglass {
+						width: 30px;
+						margin: 12px;
+					}
+					&.group {
+						width: 35px;
+						margin-top: 16px;
+						margin-left: 11px;
+					}
+					&.check {
+						width: 30px;
+						margin-top: 17px;
+						margin-left: 14px;
+					}
 				}
 			}
 		}
@@ -474,7 +599,9 @@ input#submit {
 	blockquote {
 		font-size: $s4;
 		font-style: italic;
+		font-family: $serif;
 		margin-bottom: 15px;
+		font-weight: lighter;
 	}
 	p {
 		font-size: $s9;
@@ -483,13 +610,20 @@ input#submit {
 }
 
 .features {
+	a {
+		color: $pos;
+	}
 	.padded {
 		figure {
-			width: 160px;
-			margin: 0 auto 25px;
+			width: 100px;
+			margin: 0 auto 10px;
 			img {
 				width: 100%;
 				margin: 0;
+			}
+			@include break($d) {
+				width: 160px;
+				margin: 0 auto 25px;
 			}
 		}
 		h3 {
@@ -497,10 +631,129 @@ input#submit {
 			font-family: $serif;
 		}
 		ul {
-			list-style-image: url('dash.png') !important;
+			list-style-image: url('../img/dash.png') !important;
 			li {
 			
 			}
+		}
+	}
+}
+
+.corner-codes {
+	background-image: url(../img/getcodes.png);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}
+
+.map {
+	display: none;
+	.header {
+		margin-bottom: 25px;
+	}
+	a {
+		text-decoration: underline;
+	}
+	h1 {
+		border-bottom-width: 0;
+		font-size: $s4;
+		padding: 0;
+	}
+	h5 {
+		font-size: $s8;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.themap {
+		display: none;
+		@include break($d) {
+			display: block;
+		}
+	}
+	select {
+		min-width: 130px;
+		margin-bottom: 10px;
+		font-size: $s9;
+		-webkit-appearance: none;
+		-webkit-border-radius: 0;
+		background-color: $pos;
+		padding: 10px;
+		color: $neg;
+		&:focus {
+			outline: 1px solid $primary;
+		}
+	}
+	input[type="submit"] {
+		background-color: $cyan;
+		color: $pos;
+		text-transform: uppercase;
+		padding: 8px 30px;
+		font-size: $s10;
+		letter-spacing: 1px;
+		margin-top: 5px;
+	}
+	.questions {
+		border-top: 1px solid #ccc;
+		margin-top: 25px;
+		padding-top: 25px;
+		padding-bottom: 5px;
+		text-align: center;
+	}
+
+	.closer {
+		position: absolute;
+		top: 20px;
+		right: 70px;
+		font-weight: lighter;
+		font-size: $s4;
+		cursor: pointer;
+	}
+
+	.topic-search {
+		float: right;
+		margin-top: 38px;
+	}	
+	.topic-selector {
+		float: left;
+	}
+	.topic-select {
+		margin-right: 10px;
+		p {
+			font-family: $serif;
+			font-style: italic;
+			font-size: $s9;
+		}
+		input {
+			margin-bottom: 5px;
+			min-width: 270px;
+		}
+	}
+	.state-select {
+		margin-right: 10px;
+		select {
+			background-color: $pos;
+			border-radius: 0;
+			border-width: 0;
+			-webkit-appearance: none;
+			-moz-appearance:none;
+			-webkit-border-radius: 0;
+			padding: 10px;
+			background-image: url(../img/form-arrow.png);
+			background-position: 110px center;
+			background-repeat: no-repeat;
+			&:focus {
+				outline: 1px solid $primary;
+			}
+		}
+		input {
+			margin-bottom: 3px !important;
+			background-color: $pos !important;
+		}
+	}
+	.select-submit {
+		margin-top: 37px;
+		input {
+			padding-top: 11px;
+			padding-bottom: 11px;
 		}
 	}
 }

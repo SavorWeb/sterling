@@ -2,14 +2,16 @@
 // Global typography
 // ------------------------------------------------------------
 
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic);
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,400italic);
 
 // ------------------------------------------------------------
 // Fonts
 // ------------------------------------------------------------
 
-.font-body 					{  font-family: 'PT Sans Regular', sans-serif, sans-serif; }
-.sans 					{  font-family: 'PT Sans Regular', Helvetica, Arial, sans-serif; }
-.serif { font-family: serif;}
+.font-body 					{  font-family: 'PT Sans', sans-serif, sans-serif; }
+.sans 					{  font-family: 'PT Sans', Helvetica, Arial, sans-serif; }
+.serif { font-family: 'PT Serif', serif; font-weight: normal;}
 
 // ------------------------------------------------------------
 // Core typography

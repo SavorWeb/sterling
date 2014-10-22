@@ -7,7 +7,18 @@
 // ------------------------------------------------------------
 
 .as-heading__headline 			{ @include adjust-font-size-to($s1); } 
-.as-heading__largest 			{ @include adjust-font-size-to($s2); } 	
+.as-heading__largest 			{ 
+	@include adjust-font-size-to($s6);
+	@include break($a) {
+		@include adjust-font-size-to($s4);
+	}
+	@include break($b) {
+		@include adjust-font-size-to($s6);
+	}
+	@include break($d) {
+		@include adjust-font-size-to($s2);
+	}
+} 	
 .as-heading__large 				{ @include adjust-font-size-to($s3); } 	
 .as-heading__medium				{ @include adjust-font-size-to($s4); } 	
 .as-heading__normal 			{ @include adjust-font-size-to($s5); } 	

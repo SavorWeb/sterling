@@ -6,8 +6,8 @@
 
 		<nav class="nav-collapse">
 			<ul>
-				<li><a href="/product"><img src="_/img/eyeglass-sml.png" alt="">Get Codes</a></li>
-				<li><a href="/contact"><img src="_/img/phone.png" alt="">Contact Us</a></li>
+				<li><a class="getcodes closed" href="#codes"><img src="_/img/eyeglass-sml.png" alt="">Get Codes</a></li>
+				<li><a data-scroll href="#contact"><img src="_/img/phone.png" alt="">Contact Us</a></li>
 			</ul>
 		</nav>
 	</div>

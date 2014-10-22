@@ -15,7 +15,7 @@
 
 // a-z viewports. Place where design should change, not always on device widths
 
-$a								: 300px;	// first viewport 
+$a								: 330px;	// first viewport 
 $b								: 420px;	// up one
 $c								: 600px;	// up two
 $d								: 960px;	// up three
@@ -39,12 +39,16 @@ $pos: #fff;
 $neg: #000;
 .white { background-color: $pos; color: $neg; }
 
-$primary 							: #434d61; //blue
-.blue { background-color: $primary; }
-$secondary							: #d96247; //orange
-.orange { background-color: $secondary; }
-$tertiary							: #68939c; //cyan
-.cyan { background-color: $tertiary;  }
+$blue: #434d61;
+$orange: #d96247;
+$cyan: #68939c;
+
+$primary 							: $blue; //blue
+.blue { background-color: $blue; }
+$secondary							: $orange; //orange
+.orange { background-color: $orange; }
+$tertiary							: $cyan; //cyan
+.cyan { background-color: $cyan;  }
 $grey 								: #babab9;
 
 $body-color 						: #f1f1ed;
