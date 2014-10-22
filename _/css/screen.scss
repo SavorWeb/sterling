@@ -670,7 +670,7 @@ input#submit {
 		}
 	}
 	select {
-		min-width: 130px;
+		width: 150px;
 		margin-bottom: 10px;
 		font-size: $s9;
 		-webkit-appearance: none;
@@ -738,7 +738,7 @@ input#submit {
 			-webkit-border-radius: 0;
 			padding: 10px;
 			background-image: url(../img/form-arrow.png);
-			background-position: 110px center;
+			background-position: 125px center;
 			background-repeat: no-repeat;
 			&:focus {
 				outline: 1px solid $primary;

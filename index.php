@@ -15,8 +15,8 @@
 				<h1>Codes by Municipality</h1>
 				<p>View (and search within) the complete code for your municipality.</p>
 			</div>
-			<div class="closed closer">x</div>
-			<form action="http://www.sterlingcodifiers.com/index.php" id="map_search" method="post">
+			<div class="closer">x</div>
+			<form action="../index.php" id="map_search" method="post">
 				<div class="gutter-grid">
 				<div class="colspan12-2 as-grid with-gutters">
 					<h5>State</h5>
@@ -84,7 +84,8 @@
 				<p>Find legislation from municipalities and counties with regulatory needs and state requirements similar to your own. This is a great resource for finding sample text to use in your own legislation.</p>
 			</div>
 			<div class="colspan12-8 as-grid with-gutter">
-				<form action="index.php" class="topic-search">
+
+				<form method="post" name="searchform" action="http://www.sterlingcodifiers.com/codebook/searchall.php" class="topic-search">
 					<div class="topic-selector state-select">
 					<label for="search_select_state_topic">State</label>
 					<select class="seach_select" id="search_select_state_topic">
@@ -112,11 +113,11 @@
 					</div>
 					<div class="topic-selector topic-select">
 					<label for="topic_search">Topic or Phrase</label>
-					<input type="text" id="topic_search">
+					<input type="text" id="topic_search" name="search" class="state_input_search">
 					<p>To search for a phrase, enclose it in quotes.</p>
 					</div>
 					<div class="topic-selector select-submit">
-					<input type="submit" name="Submit" value="Submit">
+					<input type="submit" name="btnSearch" class="learn_more" value="Submit">
 					</div>
 				</form>
 			</div>
@@ -216,7 +217,7 @@
 						</div>
 					</div>
 					<div class="colspan12-4 colspan6-2 as-grid with-gutter">
-						<a data-scroll class="getcodes closed" href="#codes">
+						<a data-scroll class="getcodes-check" href="#codes">
 							<div class="padded cyan typeset corner-codes">
 								<figure><img src="_/img/computer.png" alt=""></figure>
 								<h3>Online Code Hosting</h3>

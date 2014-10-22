@@ -2128,7 +2128,7 @@ input#submit {
   }
 }
 .map select {
-  min-width: 130px;
+  width: 150px;
   margin-bottom: 10px;
   font-size: 14px;
   -webkit-appearance: none;
@@ -2195,7 +2195,7 @@ input#submit {
   -webkit-border-radius: 0;
   padding: 10px;
   background-image: url(../img/form-arrow.png);
-  background-position: 110px center;
+  background-position: 125px center;
   background-repeat: no-repeat;
 }
 .map .state-select select:focus {

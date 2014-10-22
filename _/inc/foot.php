@@ -26,7 +26,7 @@ $(function() {
 	//ON STATE CHANGE
 	$('#search_select_state').change(function() {
 		state = get_state_value();
-		$.post("http://www.sterlingcodifiers.com/index.php", { action: "load_municipalities", state: state },
+		$.post("../index.php", { action: "load_municipalities", state: state },
  			function(data) {
    				$('#search_select_city').html(data);
  			}
@@ -62,7 +62,7 @@ $(function() {
 	
 	function update_search() {
 		state = get_state_value();
-		$.post("index.php", { action: "load_municipalities", state: state },
+		$.post("../index.php", { action: "load_municipalities", state: state },
  			function(data) {
    				$('#search_select_city').html(data);
  			}
@@ -106,6 +106,13 @@ $(document).ready( function() {
 	$('.getcodes').on('click', function(){
 		$('.map').slideToggle('fast');
 	});
+
+	$('.getcodes-check').on('click', function(){
+		var checkOpen = $('.map').css('display');
+		if (checkOpen != 'block') {
+			$('.map').slideToggle('fast');
+		}
+	});	
 
 	$('.closer').on('click', function(){
 		$('.map').slideToggle('fast');
