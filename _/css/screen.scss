@@ -670,21 +670,36 @@ input#submit {
 		}
 	}
 	select {
-		width: 150px;
+		width: 100%;
 		margin-bottom: 10px;
 		font-size: $s9;
 		-webkit-appearance: none;
 		-webkit-border-radius: 0;
 		background-color: $pos;
 		color: $neg;
-		padding: 0;
+		padding: 8px 11px;
+		background-image: url(../img/form-arrow.png);
+		background-position: right 10px center;
+		background-repeat: no-repeat;
 		&:focus {
 			outline: 1px solid $primary;
+		}
+		@include break($d) {
+			width: 150px;
+			padding: 0;
+			background-position: right center;
 		}
 	}
 	option {
 		padding: 2px 12px;
 		&:checked {background-color: $cyan;}
+	}
+	#map_search {
+		select {
+			@include break($d) {
+				background-image: none;
+			}
+		}
 	}
 	input[type="submit"] {
 		background-color: $cyan;
@@ -701,6 +716,14 @@ input#submit {
 		padding-top: 25px;
 		padding-bottom: 5px;
 		text-align: center;
+		span {
+			display: block;
+			clear: both;
+			@include break($d) {
+				display: inline;
+				clear: none;
+			}
+		}
 	}
 
 	.closer {
@@ -718,6 +741,10 @@ input#submit {
 	}	
 	.topic-selector {
 		float: left;
+		width: 100%;
+		@include break($d) {
+			width: auto;
+		}
 	}
 	.topic-select {
 		margin-right: 10px;
@@ -741,11 +768,16 @@ input#submit {
 			-moz-appearance:none;
 			-webkit-border-radius: 0;
 			padding: 10px;
-			background-image: url(../img/form-arrow.png);
-			background-position: 125px center;
-			background-repeat: no-repeat;
+			width: 100%;
+			// background-image: url(../img/form-arrow.png);
+			// background-position: right center;
+			// background-repeat: no-repeat;
 			&:focus {
 				outline: 1px solid $primary;
+			}
+			@include break($d) {
+				width: auto;
+				min-width: 130px;
 			}
 		}
 		input {
@@ -754,10 +786,13 @@ input#submit {
 		}
 	}
 	.select-submit {
-		margin-top: 37px;
+		margin-top: 10px;
 		input {
 			padding-top: 11px;
 			padding-bottom: 11px;
+		}
+		@include break($d) {
+			margin-top: 37px;	
 		}
 	}
 }

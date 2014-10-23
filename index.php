@@ -3630,7 +3630,7 @@
 			</div>
 		</div>
 		<div class="colspan12-12 questions">
-			<p class="center">Questions? See <a href="#" class="underline">help for searching online codes</a>.</p>
+			<p class="center">Questions? <span>See <a href="#" class="underline">help for searching online codes</a>.</span></p>
 		</div>
 	</div>
 </div>
