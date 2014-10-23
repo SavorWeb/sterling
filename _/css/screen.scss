@@ -676,11 +676,15 @@ input#submit {
 		-webkit-appearance: none;
 		-webkit-border-radius: 0;
 		background-color: $pos;
-		padding: 10px;
 		color: $neg;
+		padding: 0;
 		&:focus {
 			outline: 1px solid $primary;
 		}
+	}
+	option {
+		padding: 2px 12px;
+		&:checked {background-color: $cyan;}
 	}
 	input[type="submit"] {
 		background-color: $cyan;
@@ -757,6 +761,55 @@ input#submit {
 		}
 	}
 }
+
+.active, .inactive {
+	transition: .5s fill;
+	fill: #d9d8d3;
+}
+.inactive {
+	fill: #6b7280;
+	stroke: $blue;
+	stroke-width: 0.3px;
+}
+.active {
+	stroke: white;
+	stroke-width: 0.9px;
+	&:hover {
+		cursor: pointer;
+		fill: $cyan;
+		stroke: $cyan;
+	}
+}
+
+/*** Works on common browsers ***/
+::selection {
+    background-color: $pos;
+    color: $neg;
+}
+
+/*** Mozilla based browsers ***/
+::-moz-selection {
+    background-color: $pos;
+    color: $neg;
+}
+ 
+/***For Other Browsers ***/
+::-o-selection {
+    background-color: $pos;
+    color: $neg;
+}
+
+::-ms-selection {
+    background-color: $pos;
+    color: $neg;
+}
+ 
+/*** For Webkit ***/
+::-webkit-selection {
+    background-color: $pos;
+    color: $neg;
+}
+
 
 /* ::Import styles */
 /* ------------------------------------------------------------ */

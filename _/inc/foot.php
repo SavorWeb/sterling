@@ -26,6 +26,10 @@ $(function() {
 	//ON STATE CHANGE
 	$('#search_select_state').change(function() {
 		state = get_state_value();
+
+		$('#USA .active').removeAttr('style');
+		$('#' + state).css('fill', '#68939c');
+
 		$.post("../index.php", { action: "load_municipalities", state: state },
  			function(data) {
    				$('#search_select_city').html(data);
@@ -45,10 +49,11 @@ $(function() {
 		return false;
 	});
 	
-	$('#USA area').click(function(e) {
+	$('#USA .active').click(function(e) {
 		e.preventDefault();
 		var id = $(this).attr('id');
-		
+		$('#USA .active').removeAttr('style');
+		$(this).css('fill', '#68939c');
 		$('#search_select_state').val(id);
 		update_search();
 	});

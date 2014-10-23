@@ -2134,11 +2134,17 @@ input#submit {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
   background-color: #fff;
-  padding: 10px;
   color: #000;
+  padding: 0;
 }
 .map select:focus {
   outline: 1px solid #434d61;
+}
+.map option {
+  padding: 2px 12px;
+}
+.map option:checked {
+  background-color: #68939c;
 }
 .map input[type="submit"] {
   background-color: #68939c;
@@ -2211,6 +2217,56 @@ input#submit {
 .map .select-submit input {
   padding-top: 11px;
   padding-bottom: 11px;
+}
+
+.active, .inactive {
+  transition: .5s fill;
+  fill: #d9d8d3;
+}
+
+.inactive {
+  fill: #6b7280;
+  stroke: #434d61;
+  stroke-width: 0.3px;
+}
+
+.active {
+  stroke: white;
+  stroke-width: 0.9px;
+}
+.active:hover {
+  cursor: pointer;
+  fill: #68939c;
+  stroke: #68939c;
+}
+
+/*** Works on common browsers ***/
+::selection {
+  background-color: #fff;
+  color: #000;
+}
+
+/*** Mozilla based browsers ***/
+::-moz-selection {
+  background-color: #fff;
+  color: #000;
+}
+
+/***For Other Browsers ***/
+::-o-selection {
+  background-color: #fff;
+  color: #000;
+}
+
+::-ms-selection {
+  background-color: #fff;
+  color: #000;
+}
+
+/*** For Webkit ***/
+::-webkit-selection {
+  background-color: #fff;
+  color: #000;
 }
 
 /* ::Import styles */
